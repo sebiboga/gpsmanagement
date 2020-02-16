@@ -22,5 +22,5 @@ if (isset($lat) && isset($lng))
 	$result = $con -> query($sql);
 }
 
-echo $sql;
+header('Location: http://autobook.space/gps/');
 ?>
