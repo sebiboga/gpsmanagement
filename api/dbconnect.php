@@ -1,7 +1,7 @@
 <?php
  
 $server = "localhost";
-$database = "gps";
+$database = "sebi_web";
 $username = "sebi_web";
 $password = "ramona2@";
 // conectarea la serverul MySQL
