@@ -9,12 +9,19 @@ require_once("api/dbconnect.php");
 
 <html>
 <body>
- <form >
-   <button type="button">ADD GPS point</button>
+   <form  action='api/addgpspoint/' method="POST">
+    <p>
+	lat:<input type=text name=lat>
+
+	lng:<input type=text name=lng>
+   
+	<input type="submit" value="ADD">
+	 </p>
+   </form> 
    
    <?php
    echo "<br/>";
-   
+   if ($result)
    if ($result->num_rows==0){
 	   
    }    else {
@@ -37,6 +44,6 @@ require_once("api/dbconnect.php");
    
    ?>
    
- </form>
+
  </body>
 </html>
