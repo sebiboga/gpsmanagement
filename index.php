@@ -9,6 +9,12 @@ require_once("api/dbconnect.php");
 
 <html>
 <body>
+
+ KML generator
+    <br/>
+	<br/>
+	<button > Generate KML file </button>
+	<br/>
    <form  action='api/addgpspoint/' method="POST">
     <p>
 	lat:<input type=text name=lat>
