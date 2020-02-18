@@ -34,7 +34,10 @@ require_once("api/dbconnect.php");
 	   echo "<a href=$url target=_blank><img src='assets/pin.png' width=25></a>";
 	   ?>
 	   <button type="button">EDIT</button>
-	   <button type="button">DELETE</button>
+	   <form  action='api/delete/' method="POST">
+	     <input type=hidden name="id" value=<?php echo $rws["id"]?>>
+	    <input type="submit" value="DELETE">
+	   </form>
 	   <?php
 	   echo "<br/>";
 	   
