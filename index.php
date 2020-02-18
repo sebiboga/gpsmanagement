@@ -1,7 +1,7 @@
 <?php
 require_once("api/dbconnect.php");
 
- $sql="SELECT * FROM viatransilvanica  ORDER by ord";
+ $sql="SELECT * FROM viatransilvanica ";
  $result = $con -> query($sql);
  
  
