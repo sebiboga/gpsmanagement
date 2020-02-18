@@ -10,8 +10,11 @@ $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
 return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
 
-if ( isset($_POST["lat"])) $lat = $_POST["lat"];
-if ( isset($_POST["lng"])) $lng = $_POST["lng"];
+if ( isset($_POST["lat"]))
+ if ($_POST["lat"]!='')	$lat = $_POST["lat"];
+
+if ( isset($_POST["lng"]))
+ if ($_POST["lng"])	$lng = $_POST["lng"];
 
 
 
