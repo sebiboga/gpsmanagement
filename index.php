@@ -9,8 +9,8 @@ require_once("api/dbconnect.php");
 
 <html>
 <body>
-
- KML generator
+<p>
+ KML generator</p>
     <br/>
 	<br/>
 	<button > Generate KML file </button>
