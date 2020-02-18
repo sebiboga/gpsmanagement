@@ -1,5 +1,6 @@
 <?php 
 require_once("../dbconnect.php");
+$timestamp = date("Y-m-d H:i:s");
 function guid(){
 if (function_exists('com_create_guid') === true)
     return trim(com_create_guid(), '{}');
@@ -21,7 +22,7 @@ if ( isset($_POST["lng"]))
 if (isset($lat) && isset($lng))
 {
 	$id = guid();
-	$sql = " INSERT INTO viatransilvanica(id,lat,lng) VALUES ('$id','$lat','$lng') ";
+	$sql = " INSERT INTO viatransilvanica(id,lat,lng, timestamp) VALUES ('$id','$lat','$lng','$timestamp') ";
 	$result = $con -> query($sql);
 }
 
