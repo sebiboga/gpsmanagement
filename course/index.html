@@ -8,7 +8,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA3YUME_34J_icFjjQqYoeCsnYV
 
 <script>
 
-function sendGPStoDB(eventid,lat,lng,hole) {
+function sendGPStoDB(lat,lng) {
     if (eventid == "") {
         document.getElementById("txtHint").innerHTML = "";
         return;
@@ -25,7 +25,7 @@ function sendGPStoDB(eventid,lat,lng,hole) {
                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","../api/addgpspoint/?id="+"&lat="+lat+"&lng="+lng,true);
+        xmlhttp.open("GET","../api/addgpspoint/?"+"&lat="+lat+"&lng="+lng,true);
         xmlhttp.send();
     }
 }
@@ -71,6 +71,7 @@ function placeMarker(location) {
    text+='<br>';
  
   text+='<button onclick="sendGPStoDB('+lat+','+lng+')">Record</button>';
+  console.log(lat,lng);
    
   var infowindow = new google.maps.InfoWindow({
     content: text
