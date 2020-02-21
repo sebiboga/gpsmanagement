@@ -9,10 +9,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA3YUME_34J_icFjjQqYoeCsnYV
 <script>
 
 function sendGPStoDB(lat,lng) {
-    if (eventid == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else { 
+     
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -27,7 +24,7 @@ function sendGPStoDB(lat,lng) {
         };
         xmlhttp.open("GET","../api/addgpspoint/?"+"&lat="+lat+"&lng="+lng,true);
         xmlhttp.send();
-    }
+    
 }
 
 var map;
