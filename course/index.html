@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA3YUME_34J_icFjjQqYoeCsnYVHXqsHeo&sensor=false">
+</script>
+
+
+<script>
+
+function sendGPStoDB(eventid,lat,lng,hole) {
+    if (eventid == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("GET","../api/addgpspoint/?id="+"&lat="+lat+"&lng="+lng,true);
+        xmlhttp.send();
+    }
+}
+
+var map;
+var myCenter=new google.maps.LatLng(47.774297,25.704964000000018);
+
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:17,
+ // mapTypeId:google.maps.MapTypeId.SATELLITE
+  mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+
+  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+}
+
+
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+   
+  var eventid = "2016060";
+  var lat=location.lat();
+  var lng =location.lng();
+  
+  var hole="";
+  
+  var text = '';
+  text+=''+location.lat();
+   text+='<br>';
+   text+=location.lng();
+   text+='<br>';
+   text+='<br>';
+ 
+  text+='<button onclick="sendGPStoDB('+lat+','+lng+')">Record</button>';
+   
+  var infowindow = new google.maps.InfoWindow({
+    content: text
+	
+  });
+  
+  infowindow.open(map,marker);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1900px;height:900px;float:left;"></div>
+
+
+</body>
+</html>
+
+

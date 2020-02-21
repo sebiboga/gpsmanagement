@@ -14,8 +14,14 @@ return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 if ( isset($_POST["lat"]))
  if ($_POST["lat"]!='')	$lat = $_POST["lat"];
 
+if ( isset($_GET["lat"]))
+ if ($_GET["lat"]!='')	$lat = $_GET["lat"];
+
 if ( isset($_POST["lng"]))
  if ($_POST["lng"])	$lng = $_POST["lng"];
+
+if ( isset($_GET["lng"]))
+ if ($_GET["lng"])	$lng = $_GET["lng"];
 
 
 
