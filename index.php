@@ -13,7 +13,8 @@ require_once("api/dbconnect.php");
  KML generator</p>
     <br/>
 	<br/>
-	<a href="course/">Culege puncte pe harta</a>
+	<a href="course/" target=_blank>Culege puncte pe harta</a>
+	<br/>
 	<button > Generate KML file </button>
 	<br/>
    <form  action='api/addgpspoint/' method="POST">
