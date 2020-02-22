@@ -24,6 +24,7 @@ function sendGPStoDB(lat,lng) {
         };
         xmlhttp.open("GET","../api/addgpspoint/?"+"&lat="+lat+"&lng="+lng,true);
         xmlhttp.send();
+		
     
 }
 
@@ -40,13 +41,43 @@ var mapProp = {
   mapTypeId: google.maps.MapTypeId.HYBRID
   };
 
-  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-  google.maps.event.addListener(map, 'click', function(event) {
+var markers = [
+		{coords: {lat:47.774297, lng:25.704964000000018}},
+		{coords: {lat:47.774350, lng:25.704964000000018}}
+
+               ];
+  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  
+ for (var i=0;i < markers.length; i++) {
+	  putMarker(markers[i]);
+	}
+  
+
+ google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   });
+  
+  
 }
 
+
+
+
+function putMarker(props) {
+  var marker = new google.maps.Marker({
+    position: props.coords,
+    map: map
+  });
+  
+   if(props.iconImage) {
+   marker.setIcon(props.iconImage);
+                  }
+
+
+                     
+  
+  }
 
 function placeMarker(location) {
   var marker = new google.maps.Marker({
@@ -54,7 +85,7 @@ function placeMarker(location) {
     map: map,
   });
    
-  var eventid = "2016060";
+  
   var lat=location.lat();
   var lng =location.lng();
   
@@ -68,7 +99,7 @@ function placeMarker(location) {
    text+='<br>';
  
   text+='<button onclick="sendGPStoDB('+lat+','+lng+')">Record</button>';
-  console.log(lat,lng);
+  
    
   var infowindow = new google.maps.InfoWindow({
     content: text
