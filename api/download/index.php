@@ -1,7 +1,5 @@
 <?php
-
-$header_kml ='
-<?xml version="1.0" encoding="UTF-8"?>
+$header_kml ='<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
 <Document>
   <!-- Begin Style Definitions -->
@@ -21,8 +19,7 @@ $header_kml ='
         <coordinates>
 ';
 
-$footer_kml = '
- </coordinates>
+$footer_kml = '</coordinates>
       </LineString>
     </Placemark>
   </Folder>
