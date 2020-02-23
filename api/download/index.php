@@ -33,7 +33,7 @@ if(isset($_POST["kml"]))
       header('Content-Disposition: attachment; filename=traseu.kml');  
       $output = fopen("php://output", "w");  
      fwrite($output, $header_kml);  
-      $query = "SELECT lng,lat FROM viatransilvanica";  
+      $query = "SELECT lng,lat FROM viatransilvanica ORDER by order,timestamp";  
       $result = mysqli_query($con, $query);  
       while($row = mysqli_fetch_assoc($result))  
       {  
