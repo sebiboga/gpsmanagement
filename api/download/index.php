@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST["kml"]))  
  {  
-      require_once('dbconnect.php'); 
+      require_once('../dbconnect.php'); 
       header('Content-Type: text/csv; charset=utf-8');  
       header('Content-Disposition: attachment; filename=databaseintermediate.csv');  
       $output = fopen("php://output", "w");  
