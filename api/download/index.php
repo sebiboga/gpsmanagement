@@ -35,14 +35,14 @@ if(isset($_POST["kml"]))
       header('Content-Type: text/csv; charset=utf-8');  
       header('Content-Disposition: attachment; filename=traseu.kml');  
       $output = fopen("php://output", "w");  
-     fputcsv($output, $header_kml);  
+     fwrite($output, $header_kml);  
       $query = "SELECT lat,lng FROM viatransilvanica";  
       $result = mysqli_query($con, $query);  
       while($row = mysqli_fetch_assoc($result))  
       {  
            fputcsv($output, $row);  
       }
-   fputcsv($output, $footer_kml); 	  
+   fwrite($output, $footer_kml); 	  
       fclose($output);  
  }  
  
