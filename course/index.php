@@ -120,7 +120,7 @@ function placeMarker(location) {
    text+='<br>';
    text+='<br>';
  
-  text+='<button onclick="sendGPStoDB('+lat+','+lng+')">Record</button>';
+  text+='<button onclick="sendGPStoDB('+lat+','+lng+')">ADD</button>';
   
    
   var infowindow = new google.maps.InfoWindow({
