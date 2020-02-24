@@ -8,8 +8,25 @@ require_once("api/dbconnect.php");
 ?>
 
 <html>
+<style>
+ .button {
+    background-color: red;
+    color: white;
+    float: right;
+    height: 4em;
+    width: 60%;
+    font-size: 1.2em;
+}
+
+.title {
+    text-align: center;
+    color: blue;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+</style>
 <body>
-<p>
+<p class="title">
  KML generator</p>
     <br/>
 	<br/>
@@ -18,7 +35,7 @@ require_once("api/dbconnect.php");
 	
 	
 	<form method="post" action="api/download/" align="center">  
-      <input type="submit" name="kml" value="Generate KML file" class="btn btn-success" />  
+      <input type="submit" name="kml" value="Generate KML file" class="button" />  
     </form>
 	
 	<br/>
